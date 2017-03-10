@@ -1,7 +1,7 @@
 # Hello World program in Python
 
 # Strings
-f = open("./strings.txt",'r', encoding='utf8') # change to utf
+f = open("./utfStrings.csv",'r', encoding='utf8') # change to utf
 
 # Code list
 codeFile = open("./codeTable.txt",'r')
