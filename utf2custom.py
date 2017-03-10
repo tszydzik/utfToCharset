@@ -3,6 +3,9 @@
 # Strings
 f = open("./utfStrings.csv",'r', encoding='utf8') # change to utf
 
+# output file
+outputF = open("./encoded.txt",'w', encoding='ascii')
+
 # Code list
 codeFile = open("./codeTable.txt",'r')
 codeList = []
@@ -23,9 +26,10 @@ for varName in varNamesFile:
         if letterCnt != 0: curLine+= ", "
         curLine += codeList[ord(letter)]
         letterCnt+=1
-    curLine += "};"
+    curLine += "};\n"
     print(curLine)
     varNamesList.append(curLine)
+    outputF.write(str(curLine))
 
 # for each variable, read one line from file
 for item in f:
@@ -33,6 +37,11 @@ for item in f:
     for letter in curLine:
         print(codeList[ord(letter)])
 
+
+
+outputF.close()
+codeFile.close()
+f.close()
 
 # with open("./codeTable.txt",'r') as codeTable:
 #     codes = [next(codeTable) for x in xrange(255)]
